@@ -2,30 +2,33 @@ name: .NET Core
 
 on:
   push:
-    branches:
-      - main
-      - 'releases/*'
+    branches: [main]
+
+    workflow_dispatch:
 
 jobs:
-    build:
-      environment: Automation test
-      runs-on: windows-latest
+  build:
+    runs-on: windows-latest
 
-      steps:
-      - uses: actions/checkout@v2
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 5.0.102
-      - name: Install dependencies
-        working-directory: './src'
-        run: dotnet restore
-      - name: Build
-        working-directory: './src'
-        run: dotnet build --configuration Debug --no-restore
-      - uses: actions/publish-symbols
-        with:
-          accountName: "https://microsoftit.visualstudio.com"
-          symbolServiceUrl: 'https://artifacts.dev.azure.com'
-          personalAccessToken: ${{ secrets.PERSONALACCESSTOKEN }}
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.102
+
+    - name: Install dependencies
+      working-directory: './src'
+      run: dotnet restore
+
+    - name: Build
+      working-directory: './src'
+      run: dotnet build --configuration Debug --no-restore
+      
+    - uses: actions/publish-symbols
+      with:
+        accountName: "https://microsoftit.visualstudio.com"
+        symbolServiceUrl: 'https://artifacts.dev.azure.com'
+        personalAccessToken: ${{ secrets.PERSONALACCESSTOKEN }}
 
