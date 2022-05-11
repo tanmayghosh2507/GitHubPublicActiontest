@@ -1,10 +1,10 @@
-name: .NET Core
+name: Test Build
 
 on:
   push:
     branches: [main]
 
-    workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -26,9 +26,9 @@ jobs:
       working-directory: './src'
       run: dotnet build --configuration Debug --no-restore
       
-    - uses: actions/publish-symbols
+    - uses: actions/publish-symbols@v1
       with:
-        accountName: "https://microsoftit.visualstudio.com"
+        accountName: 'taghos'
         symbolServiceUrl: 'https://artifacts.dev.azure.com'
         personalAccessToken: ${{ secrets.PERSONALACCESSTOKEN }}
 
