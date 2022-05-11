@@ -19,7 +19,7 @@ jobs:
         dotnet-version: 5.0.102
 
     - name: Install dependencies
-      working-directory: './src'
+      working-directory: './GitHubPublishActiontest'
       run: dotnet restore
 
     - name: Build
