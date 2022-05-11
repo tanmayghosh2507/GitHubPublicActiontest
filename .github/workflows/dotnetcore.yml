@@ -28,7 +28,7 @@ jobs:
       
     - uses: microsoft/action-publish-symbols@main
       with:
-        accountName: 'taghos'
+        accountName: 'microsoftit'
         symbolServiceUrl: 'https://artifacts.dev.azure.com'
         personalAccessToken: ${{ secrets.PERSONALACCESSTOKEN }}
 
