@@ -26,7 +26,7 @@ jobs:
       working-directory: './src'
       run: dotnet build --configuration Debug --no-restore
       
-    - uses: actions/publish-symbols@main
+    - uses: microsoft/action-publish-symbols@main
       with:
         accountName: 'taghos'
         symbolServiceUrl: 'https://artifacts.dev.azure.com'
