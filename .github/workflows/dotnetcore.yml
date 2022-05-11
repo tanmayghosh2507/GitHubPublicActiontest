@@ -23,7 +23,7 @@ jobs:
       run: dotnet restore
 
     - name: Build
-      working-directory: './src'
+      working-directory: './GitHubPublishActiontest'
       run: dotnet build --configuration Debug --no-restore
       
     - uses: microsoft/action-publish-symbols@main
