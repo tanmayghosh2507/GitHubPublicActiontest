@@ -27,9 +27,9 @@ jobs:
       working-directory: './GitHubPublishActiontest'
       run: dotnet build --configuration Debug --no-restore
       
-    - uses: microsoft/action-publish-symbols@main
+    - uses: microsoft/action-publish-symbols@v1
       with:
-        accountName: 'taghos'
+        accountName: microsoftit
         symbolServiceUrl: 'https://artifacts.dev.azure.com'
         personalAccessToken: ${{ secrets.PERSONALACCESSTOKEN }}
 
