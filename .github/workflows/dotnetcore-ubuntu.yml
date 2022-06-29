@@ -27,7 +27,7 @@ jobs:
       working-directory: './GitHubPublishActiontest'
       run: dotnet build --configuration Debug --no-restore
       
-    - uses: microsoft/action-publish-symbols@v1.1
+    - uses: microsoft/action-publish-symbols@v2.1.3
       with:
         accountName: microsoftit
         symbolServiceUrl: 'https://artifacts.dev.azure.com'
